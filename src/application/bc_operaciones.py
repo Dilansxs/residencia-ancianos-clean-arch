@@ -9,7 +9,7 @@ from src.domain.bc_operaciones import (
 )
 
 
-# DTO Command para registro
+# Clase de Comando para registro
 @dataclass
 class RegistrarResidenciaCommand:
     residenteId: int
@@ -19,7 +19,7 @@ class RegistrarResidenciaCommand:
     perfil: PerfilMonitorizacion
 
 
-# «Interface» IResidenteRepository
+# Repositorio de residentes
 class IResidenteRepository(ABC):
     @abstractmethod
     def guardar(self, residente: Residente) -> None:
@@ -38,14 +38,14 @@ class IResidenteRepository(ABC):
         pass
 
 
-# «Interface» IPublicarEventosIntegracionPort
+# Interfaz de publicacion de eventos
 class IPublicarEventosIntegracionPort(ABC):
     @abstractmethod
     def publicarEventoIntegracion(self, topico: str, payload: dict) -> None:
         pass
 
 
-# «UseCase» RegistrarResidenteUseCase
+#Caso de Uso
 class RegistrarResidenteUseCase:
     def __init__(self, residenteRepository: IResidenteRepository):
         self.residenteRepository = residenteRepository
@@ -67,7 +67,7 @@ class RegistrarResidenteUseCase:
         return nuevo_residente.residenteId
 
 
-# «UseCase» ActualizarPerfilMonitorizacionUseCase
+# Caso de Uso
 class ActualizarPerfilMonitorizacionUseCase:
     def __init__(
         self,
@@ -90,7 +90,7 @@ class ActualizarPerfilMonitorizacionUseCase:
         )
 
 
-# «UseCase» ActualizarUbicacionResidenteUseCase
+#Caso de Uso
 class ActualizarUbicacionResidenteUseCase:
     def __init__(
         self,

@@ -8,7 +8,7 @@ from src.application.bc_monitorizacion import (
 from src.domain.bc_monitorizacion import LecturaBiometrica, LecturaCriticaDetectada
 
 
-# «InfrastructureAdapter» MqttTelemetriaAdapter
+# Adaptador de Telemetria
 class MqttTelemetriaAdapter(IPublicarTelemetriaPort):
     def __init__(self, brokerUrl: str, qosLevel: int = 1):
         self.brokerUrl = brokerUrl
@@ -17,7 +17,7 @@ class MqttTelemetriaAdapter(IPublicarTelemetriaPort):
 
     def publicarTelemetria(self, lectura: LecturaBiometrica) -> None:
         print(
-            f"  [MQTT v5 TLS -> {self.brokerUrl} | QoS {self.qosLevel}] "
+            f"[MQTT v5 TLS -> {self.brokerUrl} | QoS {self.qosLevel}] "
             f"Telemetría: {lectura.pulsacionesBPM} BPM | {lectura.temperaturaCelsius}°C"
         )
 
@@ -49,4 +49,4 @@ class SensorBiometricoSimuladoAdapter(ISensorHardwarePort):
 # Adaptador de Salida de Actuador Local (Relé)
 class ActuadorLocalReleAdapter(IActuadorLocalPort):
     def activarReleAlarma(self, motivo: str) -> None:
-        print(f"  [GPIO/Relé Actuador Local] ¡ALARMA SONORA/LED ACTIVADA EN HABITACIÓN! Motivo: {motivo}")
+        print(f"[GPIO/Relé Actuador Local] ¡ALARMA SONORA/LED ACTIVADA EN HABITACIÓN! Motivo: {motivo}")

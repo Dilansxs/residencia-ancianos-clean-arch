@@ -7,7 +7,7 @@ from src.domain.bc_alertas import IncidenteAlerta, EstadoIncidente
 from src.infrastructure.drivers import HttpClient, DatabaseClient
 
 
-# «InfrastructureAdapter» RestEmergenciasAdapter
+#Adaptador de notificacion externa para Emergencias y SMS
 class RestEmergenciasAdapter(INotificacionExternaPort):
     def __init__(self, httpClient: HttpClient):
         self.httpClient = httpClient
@@ -35,7 +35,7 @@ class RestEmergenciasAdapter(INotificacionExternaPort):
         )
 
 
-# Adaptador de Persistencia para BD Central de Alertas
+# Adaptador de Persistencia
 class IncidenteRepositoryAdapter(IIncidenteRepositoryPort):
     def __init__(self, databaseClient: DatabaseClient):
         self.databaseClient = databaseClient

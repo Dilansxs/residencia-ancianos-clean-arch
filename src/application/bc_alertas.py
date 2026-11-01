@@ -11,7 +11,7 @@ from src.domain.bc_alertas import (
 )
 
 
-# DTO Evento de Alerta Recibida
+#Clase de DTO
 @dataclass
 class EventoAlertaRecibida:
     incidenteId: int
@@ -23,7 +23,7 @@ class EventoAlertaRecibida:
     motivoClinico: str
 
 
-# «Interface» INotificacionExternaPort
+#Intefaz de notificacion externa
 class INotificacionExternaPort(ABC):
     @abstractmethod
     def notificarEmergencias(self, incidencia: IncidenteAlerta) -> bool:
@@ -38,7 +38,7 @@ class INotificacionExternaPort(ABC):
         pass
 
 
-# «Interface» IIncidenteRepositoryPort
+#Repositorio de incidentes
 class IIncidenteRepositoryPort(ABC):
     @abstractmethod
     def guardar(self, incidente: IncidenteAlerta) -> None:
@@ -49,7 +49,7 @@ class IIncidenteRepositoryPort(ABC):
         pass
 
 
-# «UseCase» GestionarYNotificarAlertaUseCase
+#Caso de Uso
 class GestionarYNotificarAlertaUseCase:
     def __init__(
         self,

@@ -7,7 +7,7 @@ from src.domain.bc_monitorizacion import (
 )
 
 
-# «Interface» Output Port de Telemetría
+# Interfaz de telemetria
 class IPublicarTelemetriaPort(ABC):
     @abstractmethod
     def publicarTelemetria(self, lectura: LecturaBiometrica) -> None:
@@ -18,21 +18,21 @@ class IPublicarTelemetriaPort(ABC):
         pass
 
 
-# «Interface» Port de Hardware Sensor
+# Interfaz de sensor hardware
 class ISensorHardwarePort(ABC):
     @abstractmethod
     def leerSensorBiometrico(self) -> LecturaBiometrica:
         pass
 
 
-# «Interface» Port de Actuador Local
+# Interfaz de actuador local
 class IActuadorLocalPort(ABC):
     @abstractmethod
     def activarReleAlarma(self, motivo: str) -> None:
         pass
 
 
-# «UseCase» RegistrarLecturaUseCase
+# Caso de uso
 class RegistrarLecturaUseCase:
     def __init__(
         self,

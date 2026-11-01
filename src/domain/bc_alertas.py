@@ -11,7 +11,7 @@ class EstadoIncidente(Enum):
     CERRADO = "CERRADO"
 
 
-# «ValueObject» NivelSeveridad
+#Objeto de valor (Nivel de severidad)
 @dataclass(frozen=True)
 class NivelSeveridad:
     nivel: str
@@ -22,7 +22,7 @@ class NivelSeveridad:
         return self.nivel.upper() == "CRITICA" or self.segundosMaximos <= 30
 
 
-# «Entity» NotificacionDespachada
+#Entidad del Dominio
 @dataclass
 class NotificacionDespachada:
     notificacionId: int
@@ -38,7 +38,7 @@ class NotificacionDespachada:
         self.estadoEntrega = False
 
 
-# «DomainEvent» AlertaEscaladaAEmergencias
+#Evento del Dominio de alertas
 @dataclass(frozen=True)
 class AlertaEscaladaAEmergencias:
     eventoId: int
@@ -49,7 +49,7 @@ class AlertaEscaladaAEmergencias:
     fecha: datetime = field(default_factory=datetime.now)
 
 
-# «AggregateRoot» IncidenteAlerta
+#Agregado
 @dataclass
 class IncidenteAlerta:
     incidenteId: int

@@ -9,7 +9,7 @@ class EstadoResidente(Enum):
     INACTIVO = "INACTIVO"
 
 
-# «ValueObject» UbicacionResidencia
+#Objeto de valor
 @dataclass(frozen=True)
 class UbicacionResidencia:
     numeroPlanta: int
@@ -19,7 +19,7 @@ class UbicacionResidencia:
         return self.numeroPlanta >= 0 and len(self.codigoHabitacion.strip()) > 0
 
 
-# «ValueObject» UmbralClinico
+#Objeto de valor
 @dataclass(frozen=True)
 class UmbralClinico:
     bpmMinimo: int
@@ -35,7 +35,7 @@ class UmbralClinico:
         )
 
 
-# «ValueObject» PerfilMonitorizacion
+#Objeto de valor
 @dataclass(frozen=True)
 class PerfilMonitorizacion:
     umbralClinico: UmbralClinico
@@ -49,7 +49,7 @@ class PerfilMonitorizacion:
         )
 
 
-# «AggregateRoot» Residente
+#Agregado
 @dataclass
 class Residente:
     residenteId: int

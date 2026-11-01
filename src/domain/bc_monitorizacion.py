@@ -22,7 +22,7 @@ class TipoAnomalia(Enum):
     FIEBRE_ALTA = "FIEBRE_ALTA"
 
 
-# «ValueObject» LecturaBiometrica
+#Objeto de valor
 @dataclass(frozen=True)
 class LecturaBiometrica:
     pulsacionesBPM: int
@@ -34,7 +34,7 @@ class LecturaBiometrica:
         return 20 <= self.pulsacionesBPM <= 250 and 30.0 <= self.temperaturaCelsius <= 45.0
 
 
-# «ValueObject» ConfiguracionMonitorizacionLocal
+#Objeto de valor
 @dataclass(frozen=True)
 class ConfiguracionMonitorizacionLocal:
     residenteId: int
@@ -48,7 +48,7 @@ class ConfiguracionMonitorizacionLocal:
         return 0 < self.bpmMinimo < self.bpmMaximo and 35.0 <= self.temperaturaMaxima <= 42.0
 
 
-# «Entity» DispositivoEmbebido
+#Entidad del dominio
 @dataclass
 class DispositivoEmbebido:
     macAddress: str
@@ -63,7 +63,7 @@ class DispositivoEmbebido:
         return False
 
 
-# «DomainEvent» LecturaCriticaDetectada
+#Evento del dominio
 @dataclass(frozen=True)
 class LecturaCriticaDetectada:
     eventoId: int
@@ -75,7 +75,7 @@ class LecturaCriticaDetectada:
     fechaDeteccion: datetime = field(default_factory=datetime.now)
 
 
-# «AggregateRoot» SesionMonitorizacion
+#Agregado
 @dataclass
 class SesionMonitorizacion:
     sesionId: int
